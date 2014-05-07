@@ -1,0 +1,20 @@
+extends layout
+
+block content
+	form(method='post', action='/signup', enctype='application/x-www-form-urlencoded')
+		h3 Crear una cuenta
+		if exists
+			.error
+				| Este usuario ya existe. ¿Estás intentando hacer
+				a(href="/login") Login
+				| ?
+		if invalid
+			.error Por favor, introduce un email y password válidos.
+		ul
+			li
+				label(for='email') Email
+				input#email(name='email')
+			li
+				label(for='pass') Password
+				input#pass(name='pass')
+		input(type='submit', value='Crear cuenta')
