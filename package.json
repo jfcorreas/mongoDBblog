@@ -19,6 +19,7 @@
   "homepage": "https://github.com/jfcorreas/mongoDBblog",
   "dependencies": {
     "express": "~4.1.1",
-    "mongoose": "~3.8.8"
+    "mongoose": "~3.8.8",
+    "jade": "~1.3.1"
   }
 }
