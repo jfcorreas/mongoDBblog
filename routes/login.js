@@ -45,8 +45,8 @@ module.exports = function(app) {
 
 					// Usuario creado correctamente
 					req.session.isLoggedIn = true;
-					req.session.user = email;
-					console.log('Usuario creado: %s', email);
+					req.session.user = newUser._id;
+					console.log('Usuario creado: %s', newUser._id);
 					return res.redirect('/');
 				})
 			})
@@ -67,6 +67,8 @@ module.exports = function(app) {
 		if (!(email && pass)) {
 			return invalid();
 		}
+
+		email = email.toLowerCase();
 
 		User.findById(email, function (err, user) {
 			if (err) return next(err);
